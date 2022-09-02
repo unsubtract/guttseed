@@ -10,7 +10,9 @@
 
 int main(void)
 {
+    /* actually reading user input is coming soon (maybe) */
     const char* const desired_output = "-[------->+<]>-.";
+    
     const size_t bufsize = strlen(desired_output) + 1;
     char *outstr = malloc(bufsize);
     uintmax_t i;
