@@ -1,5 +1,5 @@
-CC = musl-gcc
-CFLAGS = -pipe -Wall -Wextra --std=c99 -pedantic -D_FORTIFY_SOURCE=2
+# CC =
+# CFLAGS =
 # LDFLAGS =
 
 all: bftoguttseed guttseedtobf

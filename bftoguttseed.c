@@ -10,7 +10,9 @@
 
 int main(void)
 {
-    const char* const desired_output = "-[------->+<]>-.";
+    /* actually reading user input is coming soon (maybe) */
+    const char* const desired_output = ",[.,]";
+    
     const size_t bufsize = strlen(desired_output) + 1;
     char *outstr = malloc(bufsize);
     uintmax_t i;
@@ -19,6 +21,9 @@ int main(void)
         guttseed(bufsize, i, outstr);
         if (strcmp(desired_output, outstr) == 0) break;
     }
+
+    /* this isn't actually how programs are supposed to be formatted
+     * but I haven't fixed it yet */
     printf("%s %lu %#lx\n", outstr, strlen(outstr), i);
     return 0;
 }
