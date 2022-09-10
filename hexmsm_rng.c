@@ -5,7 +5,6 @@
 
 #define NYBBLE 4 /* bits in a hex digit, added for clarity when bitshifting */
 static inline uintmax_t hex_digits(uintmax_t n);
-static inline uintmax_t hex_pow10(uintmax_t n);
 
 /* printf(3) calls may be uncommented to provide debug information */
 uintmax_t hexmsm_next(uintmax_t n)
