@@ -22,8 +22,6 @@ int main(void)
         if (strcmp(desired_output, outstr) == 0) break;
     }
 
-    /* this isn't actually how programs are supposed to be formatted
-     * but I haven't fixed it yet */
-    printf("%s %lu %#lx\n", outstr, strlen(outstr), i);
+    printf("%"PRIuMAX" %"PRIxMAX"\n", strlen(outstr), i);
     return 0;
 }
