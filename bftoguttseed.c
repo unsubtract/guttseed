@@ -8,20 +8,24 @@
 #include "guttseed.h"
 #include "hexmsm_rng.h"
 
+#define BUF_SIZE 2048
+
 int main(void)
 {
-    /* actually reading user input is coming soon (maybe) */
-    const char* const desired_output = ",[.,]";
-    
-    const size_t bufsize = strlen(desired_output) + 1;
-    char *outstr = malloc(bufsize);
     uintmax_t i;
 
+    char *input = malloc(BUF_SIZE);
+    fgets(input, BUF_SIZE, stdin);
+    input[strcspn(input, "\r\n")] = 0; /* strip newline */
+
+    size_t outsize = strlen(input) + 1;
+    char *output = malloc(outsize);
+    
     for (i = 0; i < 0x9999; ++i) {
-        guttseed(bufsize, i, outstr);
-        if (strcmp(desired_output, outstr) == 0) break;
+        guttseed(outsize, i, output);
+        if (strcmp(input, output) == 0) break;
     }
 
-    printf("%"PRIuMAX" %"PRIxMAX"\n", strlen(outstr), i);
-    return 0;
+    printf("%"PRIuMAX" %"PRIxMAX"\n", strlen(output), i);
+    return EXIT_SUCCESS;
 }
